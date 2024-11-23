@@ -16,16 +16,25 @@ const TransportationTable = ({ combinations, customers, locations }) => {
       const results = [];
       for (const combination of combinations) {
         // Realiza una solicitud por cada combinación
-        const response = await axios.post("https://backend-cost-2599se7dv-yosstincodes-projects.vercel.app/solve-transportation/", {
-          validCombinations: [combination],
-          customers: customers,
-          locations: locations.map((location) => ({
-            location: location.location,
-            capacity: combination.combination.includes(location.location) ? location.capacity : 0,
-            shippingCost: location.shippingCost,
-            generalCost: location.generalCost,
-          })),
-        });
+        const response = await axios.post(
+          "https://backend-cost-2599se7dv-yosstincodes-projects.vercel.app/solve-transportation/",
+          {
+            validCombinations: [combination],
+            customers: customers,
+            locations: locations.map((location) => ({
+              location: location.location,
+              capacity: combination.combination.includes(location.location) ? location.capacity : 0,
+              shippingCost: location.shippingCost,
+              generalCost: location.generalCost,
+            })),
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        
         results.push({ combination: combination.description, data: response.data });
       }
       setData(results);
