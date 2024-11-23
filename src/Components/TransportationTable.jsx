@@ -32,12 +32,9 @@ const TransportationTable = ({ combinations, customers, locations }) => {
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json",
-              "Allow-Control-Allow-Origin": "*",
-            
             },
           }
         );
-        
         results.push({ combination: combination.description, data: response.data });
       }
       setData(results);
@@ -48,6 +45,7 @@ const TransportationTable = ({ combinations, customers, locations }) => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="container mx-auto p-4">
