@@ -31,6 +31,8 @@ const TransportationTable = ({ combinations, customers, locations }) => {
           {
             headers: {
               "Content-Type": "application/json",
+              "Allow-Control-Allow-Origin": "*",
+            
             },
           }
         );
