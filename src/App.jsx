@@ -5,7 +5,7 @@ import WarehouseForm from "./Components/WarehouseForm";
 import CombinationsTable from "./Components/CombinationsTable";
 import TransportationCostsTable from "./Components/TransportationCostsTable";
 import TransportationTable from "./Components/TransportationTable";
-import CostAnalysisTable from "./Components/CostAnalysisTable";
+// import CostAnalysisTable from "./Components/CostAnalysisTable";
 
 const generateValidCombinations = (locations, demand) => {
   const calculateTotals = (locs) => {
